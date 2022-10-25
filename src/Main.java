@@ -22,7 +22,6 @@ public class Main {
                 maxWastes = expensTest;
             }
         }
-
         System.out.println("Минимальная сумма трат за день составила "+minWastes+ " рублей. Максималь" +
                 "ная сумма трат за день составила "+maxWastes+" рублей");
 
