@@ -1,40 +1,42 @@
+import java.util.Random;
 public class Main {
     public static void main(String[] args) {
-        int[] weidhts = {90, 91, 93, 92, 85, 87, 88, 89, 0, 0, 0, 0};
-        int[] weidhtsCopy = {902, 91, 93, 92, 85, 87, 88, 89, 0, 0, 0, 0};
-        weidhtsCopy[0]=832;
-        int januaryWeigtht = weidhts[0];
-        System.out.println(weidhts[0]);
-        System.out.println(januaryWeigtht);
-        int january = 0;
-        System.out.println(weidhts[january]);
-        for (int i = 0; i < weidhts.length; i++) {
-            System.out.println(weidhts[i]);
-        }
-        boolean arreysAreEqu = true;
-        arreysAreEqu=weidhts.length==weidhtsCopy.length;
-        if (arreysAreEqu) {
-            for (int i = 0; i < weidhts.length; i++) {
-                if (weidhts[i] != weidhtsCopy[i]) {
-                    arreysAreEqu=false;
-                }
-            }
-        }
+        // Задача 1
+        int[] expenses = new int[30];  //пустой массив трат за месяц
+        double sum = 0;
 
-        if (arreysAreEqu) {
-            System.out.println("Массивы одинаковые");
-        } else {
-            System.out.println("Массивы разные");
+        Random random = new Random(); // случайное число
+         System.out.println("Задача 2");
+        for (int i=0;i <expenses.length; i++) {
+            expenses[i] = random.nextInt(10000)+10000;
+            sum+=expenses[i];
+            System.out.println(expenses[i]);
         }
-        int maxWright = -1;
-        for (final int current : weidhts) {
-            if (current > maxWright) {
-                maxWright = current;
+        int maxWastes=0;
+        int minWastes=expenses[0]+1;
+        for (final int expensTest : expenses) {
+            if (minWastes > expensTest) {
+                minWastes = expensTest;
+            }
+            if (expensTest > maxWastes) {
+                maxWastes = expensTest;
             }
         }
-        System.out.println(maxWright);
-            for (int i = 0; i < weidhts.length-1 && weidhts[i+1]!=0; i++) {
-                    System.out.println(weidhts[i+1]-weidhts[i]);
-                }
+        System.out.println("Минимальная сумма трат за день составила "+minWastes+ " рублей. Максималь" +
+                "ная сумма трат за день составила "+maxWastes+" рублей");
+
+        System.out.println("Задача 1");
+        System.out.println("Сумма трат за месяц составила " + sum+" рублей.");
+        // Задача 3
+        System.out.println("Задача 3");
+        double averageAmountSpent = sum/30;
+        System.out.println("Средняя сумма трат за месяц составила "+averageAmountSpent+" рублей.");
+        // Задача 4
+        System.out.println("Задача 4");
+        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        for (int i = reverseFullName.length-1;i>=0; i--) {
+            System.out.print(reverseFullName[i]);
+        }
+        System.out.println();
     }
 }
